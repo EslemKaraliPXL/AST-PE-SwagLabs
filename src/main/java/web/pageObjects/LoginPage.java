@@ -5,22 +5,23 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class LoginPage extends BasePage {
-    private By usernameField = By.id("username");
+    private By usernameField = By.id("user-name");
     private By passwordField = By.id("password");
-    private By loginButton = By.cssSelector("button[type='submit']");
+    private By loginButton = By.id("login-button");
 
     public LoginPage(WebDriver driver) {
         super(driver, "login");
     }
 
     public void enterUsername(String username) {
-        WebElement usernameElem = driver.findElement(usernameField);
-        usernameElem.sendKeys(username);
+        WebElement usernameElement = driver.findElement(usernameField);
+        usernameElement.sendKeys(username);
     }
 
-    public void enterPassword(String password) {WebElement passwordElem = driver.findElement(passwordField);
-        passwordElem.clear();
-        passwordElem.sendKeys(password);
+    public void enterPassword(String password) {
+        WebElement passwordElement = driver.findElement(passwordField);
+        passwordElement.clear();
+        passwordElement.sendKeys(password);
     }
 
     public void clickLogin() {
