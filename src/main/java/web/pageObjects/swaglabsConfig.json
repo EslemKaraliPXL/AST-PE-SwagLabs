@@ -1,3 +1,10 @@
 {
-  "baseUrl": "https://www.saucedemo.com/"
+  "baseUrl": "https://www.saucedemo.com/",
+
+  "baseUrls": {
+    "DEV": "https://dev-saucedemo.com",
+    "QA": "https://qa-saucedemo.com",
+    "STAGING": "https://staging-saucedemo.com",
+    "PROD": "https://saucedemo.com"
+  }
 }

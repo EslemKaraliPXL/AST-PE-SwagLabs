@@ -3,6 +3,6 @@ import common.JSONUtil;
 
 public class SwagLabsConfig {
     public static String getBaseUrl() {
-        return JSONUtil.getValueFromJsonFile("src/main/java/web/pageObjects/swaglabsConfig.json", "baseUrlPROD");
+        return JSONUtil.getValueFromJsonFile("src/main/java/web/pageObjects/swaglabsConfig.json", "baseUrl");
     }
 }

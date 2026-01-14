@@ -2,36 +2,42 @@ package web.pageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import testObjects.ILoginObject;
 
-public class LoginPage extends BasePage {
-    private By usernameField = By.id("user-name");
-    private By passwordField = By.id("password");
-    private By loginButton = By.id("login-button");
+public class LoginPage extends BasePage implements ILoginObject {
+    private final By usernameField = By.id("user-name");
+    private final By passwordField = By.id("password");
+    private final By loginButton = By.id("login-button");
+    private final By errorMessage = By.cssSelector("[data-test='error']");
 
     public LoginPage(WebDriver driver) {
-        super(driver, "login");
+        super(driver, "");
     }
 
     public void enterUsername(String username) {
-        WebElement usernameElement = driver.findElement(usernameField);
-        usernameElement.sendKeys(username);
+        type(usernameField, username);
     }
 
     public void enterPassword(String password) {
-        WebElement passwordElement = driver.findElement(passwordField);
-        passwordElement.clear();
-        passwordElement.sendKeys(password);
+        type(passwordField, password);
     }
 
     public void clickLogin() {
-        WebElement loginBtn = driver.findElement(loginButton);
-        loginBtn.click();
+        click(loginButton);
     }
 
     public void login(String username, String password) {
         enterUsername(username);
         enterPassword(password);
+
         clickLogin();
+    }
+
+    public boolean isLoaded() {
+        return isVisible(loginButton);
+    }
+
+    public boolean isErrorDisplayed() {
+        return isVisible(errorMessage);
     }
 }
